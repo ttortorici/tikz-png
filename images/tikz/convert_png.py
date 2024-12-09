@@ -61,13 +61,13 @@ if __name__ == "__main__":
         dpi = 300
     
     # Get the file path to the directory this script is in, regardless of where you call it from
-    parent_directory = script_path = Path(__file__).resolve().parent
+    parent_directory = Path(__file__).resolve().parent
 
     # Save PNG images in the directory above
     save_directory = parent_directory.parent
 
     # Convert each PDF file in that directory to a PNG, and save it in the directory above
-    for file in directory.rglob("*.pdf"):
+    for file in parent_directory.rglob("*.pdf"):
         convert_png(file, save_directory, dpi)
 
     # Delete LaTeX auxilary files to tidy up the directory and subdirectories
